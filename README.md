@@ -30,3 +30,11 @@ DELETE /admin/events/:id, POST /admin/events/:id/restore
 ## Environment Variables
 
 Copy .env.example to .env and set VITE_API_BASE_URL.
+
+## Authentication Flow
+
+1. POST /auth/login returns an access token (1-hour expiry) and the user's profile.
+2. The token is stored in sessionStorage (see src/utils/tokenStorage.ts for the reasoning).
+3. Every request automatically attaches Authorization: Bearer <token>.
+4. An expired/invalid token clears the session and redirects to /login.
+5. Protected /dashboard/* routes redirect unauthenticated visitors to /login.

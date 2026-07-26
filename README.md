@@ -13,5 +13,6 @@ A public events website with a protected admin dashboard, built with Vue 3 (Comp
 - Axios — HTTP client
 - Vitest + @vue/test-utils — testing
 
-## Status
-Project scaffolding — see the commit history for the build order.
+## Project Structure (so far)
+src/types/  — Shared TypeScript types mirroring the real API schema (event, auth, api)
+src/utils/  — tokenStorage, validators, formatters, errorMessages, debounce

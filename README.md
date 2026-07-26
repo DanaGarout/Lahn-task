@@ -38,3 +38,25 @@ Copy .env.example to .env and set VITE_API_BASE_URL.
 3. Every request automatically attaches Authorization: Bearer <token>.
 4. An expired/invalid token clears the session and redirects to /login.
 5. Protected /dashboard/* routes redirect unauthenticated visitors to /login.
+
+## Components So Far
+
+Reusable building blocks: loading/empty/error states, status badges,
+pagination, a confirm dialog, skeleton loaders, an image uploader with
+preview, dark mode toggle, and a self-built toast system — plus layouts
+for the public site, login, and the dashboard shell.
+
+## Installation
+
+git clone <REPOSITORY_URL>
+cd eventify
+npm install
+copy .env.example .env
+npm run dev
+
+Open the URL Vite prints (typically http://localhost:5173).
+
+## Build
+
+npm run build     — type-checks with vue-tsc, then builds to /dist
+npm run preview   — preview the production build locally

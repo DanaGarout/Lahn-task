@@ -2,7 +2,7 @@
   "name": "eventify",
   "version": "1.0.0",
   "private": true,
-  "description": "Eventify — a public events website with an admin dashboard, built with Vue 3, TypeScript and Tailwind CSS.",
+  "description": "Eventify — a public events website with an admin dashboard, built with Vue 3, TypeScript and Tailwind CSS, integrated against the Events Assessment API.",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,8 +10,6 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "mock-server": "node mock-server/server.js",
-    "dev:full": "concurrently -k -n MOCK,APP -c yellow,cyan \"npm run mock-server\" \"npm run dev\"",
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
@@ -25,17 +23,12 @@
     "@vitejs/plugin-vue": "^5.0.5",
     "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.19",
-    "concurrently": "^8.2.2",
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
     "jsdom": "^24.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "multer": "^1.4.5-lts.1",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.4.5",
-    "vite": "^8.1.5",
-    "vitest": "^4.1.10",
+    "vite": "^5.3.1",
+    "vitest": "^1.6.0",
     "vue-tsc": "^2.0.21"
   }
 }

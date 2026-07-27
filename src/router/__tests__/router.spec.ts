@@ -12,6 +12,7 @@ describe('router navigation guards', () => {
   })
 
   it('redirects an unauthenticated user away from a protected dashboard route', async () => {
+    await router.push('/')
     await router.push('/dashboard')
     expect(router.currentRoute.value.name).toBe('login')
     expect(router.currentRoute.value.query.redirect).toBe('/dashboard')
@@ -19,16 +20,18 @@ describe('router navigation guards', () => {
 
   it('allows an authenticated user to reach a protected dashboard route', async () => {
     tokenStorage.setToken('fake-token', 3600)
-    tokenStorage.setUser({ id: 'usr_1', name: 'Admin', email: 'admin@eventify.dev' })
+    tokenStorage.setUser({ id: 1, name: 'Admin', email: 'admin@eventify.dev', role: 'admin' })
 
+    await router.push('/')
     await router.push('/dashboard')
     expect(router.currentRoute.value.name).toBe('dashboard-events')
   })
 
   it('sends an already-authenticated user away from the login page', async () => {
     tokenStorage.setToken('fake-token', 3600)
-    tokenStorage.setUser({ id: 'usr_1', name: 'Admin', email: 'admin@eventify.dev' })
+    tokenStorage.setUser({ id: 1, name: 'Admin', email: 'admin@eventify.dev', role: 'admin' })
 
+    await router.push('/')
     await router.push('/login')
     expect(router.currentRoute.value.name).toBe('dashboard-events')
   })
@@ -36,8 +39,9 @@ describe('router navigation guards', () => {
   it('treats an expired token the same as being logged out', async () => {
     // expiresIn of -10 seconds => already expired
     tokenStorage.setToken('fake-token', -10)
-    tokenStorage.setUser({ id: 'usr_1', name: 'Admin', email: 'admin@eventify.dev' })
+    tokenStorage.setUser({ id: 1, name: 'Admin', email: 'admin@eventify.dev', role: 'admin' })
 
+    await router.push('/')
     await router.push('/dashboard')
     expect(router.currentRoute.value.name).toBe('login')
   })

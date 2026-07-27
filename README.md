@@ -63,9 +63,8 @@ npm run preview   — preview the production build locally
 
 ## Testing
 
-npm run test        — run once
-npm run test:watch  — watch mode
+Run the test suite with:
 
-Covers: login form validation, protected route redirects (including an
-expired token), the events API service layer, and the create-event form
-(validation, submit, and the double-submit guard).
+    npm run test
+
+Covers the token storage utility, form validators, the events API service layer, the auth store, the event creation form, and the router's auth guard (36 tests).

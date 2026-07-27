@@ -60,3 +60,12 @@ Open the URL Vite prints (typically http://localhost:5173).
 
 npm run build     — type-checks with vue-tsc, then builds to /dist
 npm run preview   — preview the production build locally
+
+## Testing
+
+npm run test        — run once
+npm run test:watch  — watch mode
+
+Covers: login form validation, protected route redirects (including an
+expired token), the events API service layer, and the create-event form
+(validation, submit, and the double-submit guard).

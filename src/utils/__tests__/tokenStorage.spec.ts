@@ -30,14 +30,14 @@ describe('tokenStorage', () => {
   })
 
   it('stores and retrieves the current user', () => {
-    const user = { id: 'usr_1', name: 'Admin', email: 'admin@eventify.dev' }
+    const user = { id: '1', name: 'Admin', email: 'admin@eventify.dev', role: 'admin' }
     tokenStorage.setUser(user)
     expect(tokenStorage.getUser()).toEqual(user)
   })
 
   it('clear() wipes the token, expiry, and user together', () => {
     tokenStorage.setToken('abc123', 3600)
-    tokenStorage.setUser({ id: 'usr_1', name: 'Admin', email: 'admin@eventify.dev' })
+    tokenStorage.setUser({ id: '1', name: 'Admin', email: 'admin@eventify.dev', role: 'admin' })
 
     tokenStorage.clear()
 

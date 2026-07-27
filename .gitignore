@@ -31,6 +31,3 @@ logs/
 # Test/coverage
 coverage/
 
-# Mock server uploaded files (demo-only runtime data)
-mock-server/uploads/*
-!mock-server/uploads/.gitkeep

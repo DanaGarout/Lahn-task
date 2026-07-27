@@ -31,7 +31,7 @@ describe('auth store', () => {
     mockedAuthApi.login.mockResolvedValue({
       accessToken: 'tok_123',
       expiresIn: 3600,
-      user: { id: 'usr_1', name: 'Admin', email: 'admin@eventify.dev' },
+      user: { id: '1', name: 'Admin', email: 'admin@eventify.dev', role: 'admin' },
     })
 
     const store = useAuthStore()
@@ -58,7 +58,7 @@ describe('auth store', () => {
     mockedAuthApi.login.mockResolvedValue({
       accessToken: 'tok_123',
       expiresIn: 3600,
-      user: { id: 'usr_1', name: 'Admin', email: 'admin@eventify.dev' },
+      user: { id: '1', name: 'Admin', email: 'admin@eventify.dev', role: 'admin'},
     })
     const store = useAuthStore()
     await store.login({ email: 'admin@eventify.dev', password: 'password123' })
